@@ -18,12 +18,15 @@
 
             const button_test = document.getElementById('click_test');
             button_test.addEventListener('click', () => {
-                socket.emit('user-training-measurements', {
-                    chanel: "channel-b424-5c28deca3bdf",
+                measurement_user = {
+                    channel: "channel-b424-5c28deca3bdf",
                     email: 'test@email.com',
                     user_uuid: 'd8d9064e-e543-4f04-abbc-53076eb1331f',
+                    order: 'min',
                     score: 57
-                })
+                }
+
+                socket.emit('user-training-measurements', measurement_user)
             });
         </script>
     </body>
