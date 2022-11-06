@@ -1,3 +1,4 @@
+const measurement_repository = require('../Repository/MeasurementRepository')
 
 // insert measurements of the users
 module.exports = store_measurement = (io) => {
@@ -10,7 +11,10 @@ module.exports = store_measurement = (io) => {
 		})
 
 		socket.on('user-training-measurements', (data) => {
-			console.log(data)
+
+			let p = measurement_repository.insert(data)
+
+			console.log(p)
 		})
 	})
 }
